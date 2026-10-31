@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Website</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #101020, #202c50);
+            color: white;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 420px;
+            padding: 35px;
+            text-align: center;
+            background: #191c2e;
+            border: 1px solid #353b5a;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px #0005;
+        }
+
+        h1 {
+            color: #68a5ff;
+        }
+
+        p {
+            color: #c4c8d8;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin: 15px 0;
+            border: 1px solid #444c6c;
+            border-radius: 8px;
+            background: #101323;
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #448aff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2869db;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: #7fffb0;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Welcome! 🚀</h1>
+        <p>This is my first website.</p>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter your name"
+        >
+
+        <button onclick="welcomeUser()">
+            Get Started
+        </button>
+
+        <h3 id="message"></h3>
+    </div>
+
+    <script>
+        function welcomeUser() {
+            let name = document.getElementById("username").value.trim();
+
+            if (name === "") {
+                document.getElementById("message").textContent =
+                    "Please enter your name!";
+            } else {
+                document.getElementById("message").textContent =
+                    "Welcome, " + name + "! 🎉";
+            }
+        }
+    </script>
+
+</body>
+</html>
