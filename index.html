@@ -1,112 +1,510 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+
+    <title>Muhammad Abdullah | Python Developer</title>
 
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #080d17;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: rgba(8, 13, 23, 0.95);
+            border-bottom: 1px solid #1f2937;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #4f9cff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #d1d5db;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #4f9cff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 88vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #101020, #202c50);
-            color: white;
-        }
-
-        .card {
-            width: 90%;
-            max-width: 420px;
-            padding: 35px;
             text-align: center;
-            background: #191c2e;
-            border: 1px solid #353b5a;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px #0005;
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at top, #162447, transparent 50%),
+                #080d17;
         }
 
-        h1 {
-            color: #68a5ff;
+        .hero-content {
+            max-width: 850px;
         }
 
-        p {
-            color: #c4c8d8;
+        .tag {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-bottom: 20px;
+            border: 1px solid #4f9cff;
+            border-radius: 30px;
+            color: #75b4ff;
+            background: #4f9cff12;
         }
 
-        input {
-            width: 100%;
-            padding: 13px;
-            margin: 15px 0;
-            border: 1px solid #444c6c;
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #4f9cff;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #aeb7c5;
+            font-size: 18px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            margin: 6px;
             border-radius: 8px;
-            background: #101323;
-            color: white;
-            font-size: 16px;
+            text-decoration: none;
+            transition: 0.3s;
         }
 
-        button {
-            width: 100%;
-            padding: 13px;
+        .primary {
             background: #448aff;
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
         }
 
-        button:hover {
-            background: #2869db;
+        .primary:hover {
+            background: #2670e8;
+            transform: translateY(-2px);
         }
 
-        #message {
-            margin-top: 20px;
-            color: #7fffb0;
-            overflow-wrap: anywhere;
+        .secondary {
+            border: 1px solid #4b5563;
+            color: white;
+        }
+
+        .secondary:hover {
+            border-color: #4f9cff;
+            color: #4f9cff;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #8e99a9;
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            background: #101827;
+            padding: 35px;
+            border: 1px solid #1e293b;
+            border-radius: 15px;
+        }
+
+        .about-box p {
+            color: #b8c1ce;
+            font-size: 17px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .skill {
+            background: #111b2c;
+            border: 1px solid #24324a;
+            color: #b9d7ff;
+            padding: 10px 18px;
+            border-radius: 25px;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .project {
+            background: #101827;
+            border: 1px solid #1e293b;
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            border-color: #448aff;
+            box-shadow: 0 12px 35px #00000050;
+        }
+
+        .project-number {
+            color: #4f9cff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .project h3 {
+            margin: 10px 0;
+            font-size: 21px;
+        }
+
+        .project p {
+            color: #9ca8b8;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            background: #0c1421;
+        }
+
+        .contact-card {
+            max-width: 650px;
+            margin: auto;
+            padding: 35px;
+            background: #101827;
+            border: 1px solid #1e293b;
+            border-radius: 15px;
+        }
+
+        .contact-card p {
+            color: #9ca8b8;
+            margin: 10px 0 25px;
+        }
+
+        .email {
+            color: #72afff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #667085;
+            border-top: 1px solid #1e293b;
+        }
+
+        @media (max-width: 700px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="card">
-        <h1>Welcome! 🚀</h1>
-        <p>This is my first website.</p>
+    <nav>
+        <div class="logo">MA.</div>
 
-        <input
-            type="text"
-            id="username"
-            placeholder="Enter your name"
-        >
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <button onclick="welcomeUser()">
-            Get Started
-        </button>
 
-        <h3 id="message"></h3>
-    </div>
+    <header class="hero">
 
-    <script>
-        function welcomeUser() {
-            let name = document.getElementById("username").value.trim();
+        <div class="hero-content">
 
-            if (name === "") {
-                document.getElementById("message").textContent =
-                    "Please enter your name!";
-            } else {
-                document.getElementById("message").textContent =
-                    "Welcome, " + name + "! 🎉";
-            }
-        }
-    </script>
+            <span class="tag">Python Developer • Automation Specialist</span>
+
+            <h1>Muhammad Abdullah</h1>
+
+            <h2>Python Developer & Automation Engineer</h2>
+
+            <p>
+                I build Python-based automation systems, lead generation
+                solutions, scraping tools and custom software designed to
+                automate repetitive workflows and improve productivity.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn primary">
+                    View My Projects
+                </a>
+
+                <a href="mailto:nottobent782@gmail.com" class="btn secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p class="section-subtitle">
+            Developer focused on automation and practical software solutions.
+        </p>
+
+        <div class="about-box">
+
+            <p>
+                I'm Muhammad Abdullah, a Python Developer focused on building
+                automation systems, data extraction tools, lead-generation
+                solutions and workflow integrations.
+
+                My work includes YouTube automation, lead generation
+                automation, desktop applications, WhatsApp data extraction
+                tools, platform integrations and full-stack application
+                development.
+
+                I focus on creating software that reduces repetitive manual
+                work and turns complex workflows into efficient automated
+                systems.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section id="skills">
+
+        <h2 class="section-title">Technical Skills</h2>
+
+        <p class="section-subtitle">
+            Technologies and areas I work with.
+        </p>
+
+        <div class="skills">
+
+            <span class="skill">Python</span>
+            <span class="skill">Automation</span>
+            <span class="skill">Web Scraping</span>
+            <span class="skill">Lead Generation</span>
+            <span class="skill">API Integration</span>
+            <span class="skill">n8n Integration</span>
+            <span class="skill">Workflow Automation</span>
+            <span class="skill">Desktop Applications</span>
+            <span class="skill">Data Extraction</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+
+        </div>
+
+    </section>
+
+
+    <section id="projects">
+
+        <h2 class="section-title">Featured Projects</h2>
+
+        <p class="section-subtitle">
+            Selected automation and development projects.
+        </p>
+
+        <div class="projects">
+
+            <div class="project">
+                <span class="project-number">PROJECT 01</span>
+                <h3>Automation System</h3>
+                <p>
+                    Python-based automation solution designed to streamline
+                    repetitive workflows and reduce manual operations.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <span class="project-number">PROJECT 02</span>
+                <h3>YouTube Automation</h3>
+                <p>
+                    Automated workflow for managing repetitive tasks involved
+                    in YouTube content operations and channel workflows.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <span class="project-number">PROJECT 03</span>
+                <h3>Lead Generation Automation</h3>
+                <p>
+                    Automated lead-generation system designed to collect,
+                    process and organize business prospect data efficiently.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <span class="project-number">PROJECT 04</span>
+                <h3>Python + n8n Integration</h3>
+                <p>
+                    Integrated Python applications with n8n workflows to
+                    create flexible multi-step business automation systems.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <span class="project-number">PROJECT 05</span>
+                <h3>Facebook Clone</h3>
+                <p>
+                    Social networking application inspired by Facebook,
+                    developed to demonstrate full-stack application
+                    architecture and interactive social features.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <span class="project-number">PROJECT 06</span>
+                <h3>Desktop Lead Generator</h3>
+                <p>
+                    Desktop-based lead generation software built to simplify
+                    prospect discovery, collection and organization.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <span class="project-number">PROJECT 07</span>
+                <h3>WhatsApp Data Extraction Tool</h3>
+                <p>
+                    Python-based data processing and extraction utility
+                    developed for structured workflow and contact-data
+                    management.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">Let's Work Together</h2>
+
+        <p class="section-subtitle">
+            Have an automation or Python development project?
+        </p>
+
+        <div class="contact-card">
+
+            <h2>Muhammad Abdullah</h2>
+
+            <p>
+                Python Developer • Automation Specialist
+            </p>
+
+            <a
+                href="mailto:nottobent782@gmail.com"
+                class="email"
+            >
+                nottobent782@gmail.com
+            </a>
+
+            <br><br>
+
+            <a
+                href="mailto:nottobent782@gmail.com?subject=Project Inquiry"
+                class="btn primary"
+            >
+                Hire Me
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        © 2026 Muhammad Abdullah — Python Developer
+    </footer>
 
 </body>
 </html>
